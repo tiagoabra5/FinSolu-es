@@ -1,0 +1,29 @@
+[
+    {
+        "username": "teste1",
+        "cpf": "111",
+        "idade": "01/01/2001",
+        "genero": "M",
+        "email": "1@teste.com",
+        "password": "123",
+        "renda_mensal": "0",
+        "fontes_renda_principais": "0",
+        "categorias_despesas": "0",
+        "despesas_mensais": "0",
+        "valor_medio_despesas_mensais": "0",
+        "dividas_pendentes": "0",
+        "valor_medio_dividas_pendentes": "0",
+        "capacidade_poupanca": "0",
+        "objetivos_curto_prazo": "0",
+        "objetivos_medio_prazo": "0",
+        "objetivos_longo_prazo": "0",
+        "gastos_entretenimento": "0",
+        "valor_medio_entretenimento": "0",
+        "padrao_consumo_servicos": "0",
+        "valor_medio_pcs": "0",
+        "gastos_educ_saude": "0",
+        "valor_medio_educ_saude": "0",
+        "principais_cartoes": "0",
+        "forma_pagamento_comum": "0"
+    }
+]
