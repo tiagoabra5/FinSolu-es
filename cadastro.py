@@ -121,67 +121,63 @@ def login(cpf, password):
             return "Senha incorreta ou cpf incorreto!"     
     
 def menu():
-    while True:
-        print("\n---> FinSolucoes <---")
-        print("1 - Criar usuario")
-        print("2 - Ler usuarios")
-        print("3 - Atualizar senha")
-        print("4 - Deletar usuario")
-        print("5 - Login")
-        print("0 - Sair")
+    print("\n---> FinSolucoes <---")
+    print("1 - Criar usuario")
+    print("2 - Ler usuarios")
+    print("3 - Atualizar senha")
+    print("4 - Deletar usuario")
+    print("5 - Login")
+    print("0 - Sair")
         
-        option = input("Escolha uma opcao: ")
+    option = input("Escolha uma opcao: ")
         
-        if option == '1':
-            username = input("Nome de usuario: ")
-            cpf = input("informe o cpf: ")
-            idade = input("Data de nascimento: ")
-            genero = input("Informe o genero: (M/F) ")
-            email = input("Email de contato: ")
-            password = input("Senha: ")
-            renda_mensal = input("informa sua renda mensal: ")
-            fontes_renda_principais = input("informa suas principais fontes de renda: ")
-            categorias_despesas = input("agora as categorias das despesas: ")
-            despesas_mensais = input("informe suas despesas mensais: ")
-            valor_medio_despesas_mensais = input("informe o valor medio das suas despesas mensais: ")
-            dividas_pendentes = input("informe se voce possui dividas pendentes: (Se nao possui, digite *0* )")
-            valor_medio_dividas_pendentes = input("informe o valor medio das suas dividas pendentes: (Se nao possui, digite *0* )")
-            capacidade_poupanca = input("informe a capacidade da sua poupança: ")
-            objetivos_curto_prazo = input("informe quais sao seus objetivos a curto prazo: ")
-            objetivos_medio_prazo = input("informe quais sao seus objetivos a medio prazo: ")
-            objetivos_longo_prazo = input("informe quais sao seus objetivos a longo prazo: ")
-            gastos_entretenimento = input("informe seus gastos com entreterimento em geral: ")
-            valor_medio_entretenimento = input("informe os gastos medios com entreterimento: ")
-            padrao_consumo_servicos = input("qual o padrao de consumo com os servicos: ")
-            valor_medio_pcs = input("informe o valor medio pcs: ")
-            gastos_educ_saude = input("informe o valor com os gastos de educacao e saude: ")
-            valor_medio_educ_saude = input("qual o valor medio dos gastos de educacao e saude: ")
-            principais_cartoes = input("informe seus principais cartoes: ")
-            forma_pagamento_comum = input("informe qual a forma de pagamento que voce costuma usar: ")
-            print(criar_usuarios(username, cpf, idade, genero, email, password, renda_mensal, fontes_renda_principais, categorias_despesas, despesas_mensais, valor_medio_despesas_mensais, dividas_pendentes, valor_medio_dividas_pendentes, capacidade_poupanca, objetivos_curto_prazo, objetivos_medio_prazo, objetivos_longo_prazo, gastos_entretenimento, valor_medio_entretenimento, padrao_consumo_servicos, valor_medio_pcs, gastos_educ_saude, valor_medio_educ_saude, principais_cartoes, forma_pagamento_comum))
+    if option == '1':
+        username = input("Nome de usuario: ")
+        cpf = input("informe o cpf: ")
+        idade = input("Data de nascimento: ")
+        genero = input("Informe o genero: (M/F) ")
+        email = input("Email de contato: ")
+        password = input("Senha: ")
+        renda_mensal = input("informa sua renda mensal: ")
+        fontes_renda_principais = input("informa suas principais fontes de renda: ")
+        categorias_despesas = input("agora as categorias das despesas: ")
+        despesas_mensais = input("informe suas despesas mensais: ")
+        valor_medio_despesas_mensais = input("informe o valor medio das suas despesas mensais: ")
+        dividas_pendentes = input("informe se voce possui dividas pendentes: (Se nao possui, digite *0* )")
+        valor_medio_dividas_pendentes = input("informe o valor medio das suas dividas pendentes: (Se nao possui, digite *0* )")
+        capacidade_poupanca = input("informe a capacidade da sua poupança: ")
+        objetivos_curto_prazo = input("informe quais sao seus objetivos a curto prazo: ")
+        objetivos_medio_prazo = input("informe quais sao seus objetivos a medio prazo: ")
+        objetivos_longo_prazo = input("informe quais sao seus objetivos a longo prazo: ")
+        gastos_entretenimento = input("informe seus gastos com entreterimento em geral: ")
+        valor_medio_entretenimento = input("informe os gastos medios com entreterimento: ")
+        padrao_consumo_servicos = input("qual o padrao de consumo com os servicos: ")
+        valor_medio_pcs = input("informe o valor medio pcs: ")
+        gastos_educ_saude = input("informe o valor com os gastos de educacao e saude: ")
+        valor_medio_educ_saude = input("qual o valor medio dos gastos de educacao e saude: ")
+        principais_cartoes = input("informe seus principais cartoes: ")
+        forma_pagamento_comum = input("informe qual a forma de pagamento que voce costuma usar: ")
+        print(criar_usuarios(username, cpf, idade, genero, email, password, renda_mensal, fontes_renda_principais, categorias_despesas, despesas_mensais, valor_medio_despesas_mensais, dividas_pendentes, valor_medio_dividas_pendentes, capacidade_poupanca, objetivos_curto_prazo, objetivos_medio_prazo, objetivos_longo_prazo, gastos_entretenimento, valor_medio_entretenimento, padrao_consumo_servicos, valor_medio_pcs, gastos_educ_saude, valor_medio_educ_saude, principais_cartoes, forma_pagamento_comum))
         
-        elif option == '2':
-            ler_usuarios()
+    elif option == '2':
+        ler_usuarios()
         
-        elif option == '3':
-            cpf = input("informe o cpf do usuario: ")
-            new_password = input("Nova senha: ")
-            print(atualizar_usuarios(cpf, new_password))
+    elif option == '3':
+        cpf = input("informe o cpf do usuario: ")
+        new_password = input("Nova senha: ")
+        print(atualizar_usuarios(cpf, new_password))
         
-        elif option == '4':
-            cpf = input("informe o cpf do usuario: ")
-            print(deletar_usuarios(cpf))
+    elif option == '4':
+        cpf = input("informe o cpf do usuario: ")
+        print(deletar_usuarios(cpf))
         
-        elif option == '5':
-            cpf = input("informe o cpf do usuario: ")
-            password = input("Senha: ")
-            print(login(cpf, password))
+    elif option == '5':
+        cpf = input("informe o cpf do usuario: ")
+        password = input("Senha: ")
+        print(login(cpf, password))
         
-        elif option == '0':
-            print("Voltando...")
-            break
+    elif option == '0':
+        print("Voltando...")
         
-        else:
-            print("Opcao invalida!")
-            
-menu()
+    else:
+        print("Opcao invalida!")           
