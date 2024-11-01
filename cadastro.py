@@ -71,7 +71,7 @@ def deletar_usuarios(cpf):
     return "Usuario deletado com sucesso!"
 
 def login(cpf, password):
-    usuarios = carregar_usuarios()  # Certifique-se de ter essa função definida para ler o JSON
+    usuarios = carregar_usuarios()  
     
     for usuario in usuarios:
         if usuario["cpf"] == cpf and usuario["password"] == password:
