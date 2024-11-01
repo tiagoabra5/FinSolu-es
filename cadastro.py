@@ -71,16 +71,25 @@ def deletar_usuarios(cpf):
     return "Usuario deletado com sucesso!"
 
 def login(cpf, password):
-    usuarios = carregar_usuarios()
+    usuarios = carregar_usuarios()  # Certifique-se de ter essa função definida para ler o JSON
     
-    cpf = cpf.strip()
-    password = password.strip()
-    
-    for i in usuarios:
-        if str(i["cpf"]) == cpf and str(i["password"]) == password:
-            return "Login bem-sucedido!"
+    for usuario in usuarios:
+        if usuario["cpf"] == cpf and usuario["password"] == password:
+            return print("Login bem-sucedido!")
         else:
-            return "Senha incorreta ou cpf incorreto!"     
+            return print("CPF ou senha incorretos!")
+
+#def login(cpf, password):
+#    usuarios = carregar_usuarios()
+#    
+#    cpf = cpf.strip()
+#    password = password.strip()
+#    
+#    for i in usuarios:
+#        if str(i["cpf"]) == cpf and str(i["password"]) == password:
+#            return "Login bem-sucedido!"
+#        else:
+#            return "Senha incorreta ou cpf incorreto!"     
     
 def menu():
     print("\n---> FinSolucoes <---")
