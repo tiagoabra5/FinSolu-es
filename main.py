@@ -13,13 +13,13 @@ class cor:
 
 def menu():
     while True:
-        print(cor.VERDE + "---> Sistema cimentogames <---")
-        print(cor.CIANO + "    1 - Modulo usuarios")
-        print(cor.CIANO + "    2 - 2 crud")
-        print(cor.CIANO + "    3 - 3 crud")
-        print(cor.CIANO + "    0 - Sair")
+        print(cor.AZUL + "---> Sistema FinSoluções <---")
+        print("    1 - Modulo usuarios")
+        print("    2 - 2 crud")
+        print("    3 - 3 crud")
+        print("    0 - Sair")
     
-        opcao = int(input(cor.VERDE + "escolha uma das opções acima: "))
+        opcao = int(input("escolha uma das opções acima: "))
 
         if(opcao == 1):
             cadastro.menu()
@@ -31,7 +31,7 @@ def menu():
             print("aqui vai ficar o 3° crud")
             continue
         else:
-            print(cor.VERMELHO + "Saindo...")
+            print("Saindo...")
             break
             
 menu()
