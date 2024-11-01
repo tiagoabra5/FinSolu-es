@@ -13,7 +13,7 @@ class cor:
 
 def menu():
     while True:
-        print(cor.AZUL + "---> Sistema FinSoluções <---")
+        print(f"---> {cor.AZUL}Sistema FinSoluções{cor.RESET} <---")
         print("    1 - Modulo usuarios")
         print("    2 - 2 crud")
         print("    3 - 3 crud")
