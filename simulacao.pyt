@@ -1,3 +1,6 @@
 print("Ola mundo")
 print("Hello world!")
 print("Nihao")
+def menu()
+    print("----> Bem vindo a simulação da finsoluções <----")
+    print("1 - Simular ")
