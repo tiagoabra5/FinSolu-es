@@ -1,0 +1,17 @@
+{
+    "renda_mensal": 3500.0,
+    "fontes_renda_principais": "trabalho",
+    "valor_medio_despesas_mensais": 1500.0,
+    "dividas_pendentes": "0",
+    "valor_medio_dividas_pendentes": 0.0,
+    "capacidade_poupanca": 2000.0,
+    "objetivos_curto_prazo": "estabilidade financeira",
+    "gastos_entretenimento": "lazer e festas",
+    "valor_medio_entretenimento": 500.0,
+    "padrao_consumo_servicos": "normal",
+    "valor_medio_pcs": 500.0,
+    "gastos_educ_saude": "academia e whey",
+    "valor_medio_educ_saude": 200.0,
+    "principais_cartoes": "nubank",
+    "forma_pagamento_comum": "credito"
+}

@@ -1,6 +1,7 @@
 import json
 import os
 import cadastro
+import perfil
 
 class cor:
     VERMELHO = '\033[91m'
@@ -15,7 +16,7 @@ def menu():
     while True:
         print(f"---> {cor.AZUL}Sistema FinSoluções{cor.RESET} <---")
         print("    1 - Modulo usuarios")
-        print("    2 - 2 crud")
+        print("    2 - Perfil Financeiro")
         print("    3 - 3 crud")
         print("    0 - Sair")
     
@@ -25,7 +26,7 @@ def menu():
             cadastro.menu()
             continue
         elif(opcao == 2):
-            print("aqui vai ficar o 2° crud")
+            perfil.menu()
             continue
         elif(opcao == 3):
             print("aqui vai ficar o 3° crud")

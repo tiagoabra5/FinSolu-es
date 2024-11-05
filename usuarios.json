@@ -14,5 +14,29 @@
         "genero": "M",
         "email": "3@teste.com",
         "password": "123"
+    },
+    {
+        "username": "Gustavo",
+        "cpf": "13722629462",
+        "idade": "27/05/2002",
+        "genero": "M",
+        "email": "gusrqueque@gmail.com",
+        "password": "123"
+    },
+    {
+        "username": "",
+        "cpf": "",
+        "idade": "",
+        "genero": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "teste1",
+        "cpf": "aadasdasfaderafasr",
+        "idade": "asdfasdada",
+        "genero": "D",
+        "email": "adsasdadas",
+        "password": "dadsaas"
     }
 ]
