@@ -23,7 +23,7 @@ def criar_perfil_usuario():
         "gastos_educ_saude": input("Descreva seus gastos com educação e saúde: "),
         "valor_medio_educ_saude": float(input("Informe o valor médio dos gastos com educação e saúde: ")),
         "principais_cartoes": input("Informe seus principais cartões de crédito: "),
-        "forma_pagamento_comum": input("Informe sua forma de pagamento mais comum: ")
+        "forma_pagamento_comum": input("Informe sua forma de pagamento mais comum: ")      
     }
     
     salvar_perfil_usuario(perfil_usuario)
