@@ -36,8 +36,8 @@ def listar_metas():
     if metas:
         for meta in metas:
             print(f"nome: {meta['nome']}")
-            print(f"cpf: {meta['prazo']}")
-            print(f"idade: {meta['descrição']}")
+            print(f"prazo: {meta['prazo']}")
+            print(f"descrição: {meta['descrição']}")
         return "Nenhuma meta encontrada."
     return metas
 
@@ -56,10 +56,10 @@ def atualizar_meta(nome, novo_nome, prazo, novo_prazo, descricao, nova_descricao
 def deletar_meta(nome):
     metas = carregar_metas()
     
-    if nome not in metas:
-        return "Usuario nao encontrado!"
-    
-    del metas[nome]
+    for meta in metas:  
+        if meta['nome'] == nome:
+            metas.remove(meta)
+
     salvar_metas(metas)
     return "Meta deletada com sucesso!"
     

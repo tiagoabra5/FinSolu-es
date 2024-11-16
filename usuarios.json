@@ -38,5 +38,13 @@
         "genero": "D",
         "email": "adsasdadas",
         "password": "dadsaas"
+    },
+    {
+        "username": "teste",
+        "cpf": "3472740",
+        "idade": "71717",
+        "genero": "M",
+        "email": "ahsahjs",
+        "password": "hgfjashdk"
     }
 ]
