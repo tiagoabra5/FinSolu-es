@@ -2,6 +2,7 @@ import json
 import os
 import cadastro
 import perfil
+import metas
 
 class cor:
     VERMELHO = '\033[91m'
@@ -18,6 +19,7 @@ def menu():
         print("    1 - Modulo usuarios")
         print("    2 - Modulo perfis")
         print("    3 - 3 crud")
+        print("    4 - Modulo metas")
         print("    0 - Sair")
     
         opcao = int(input("escolha uma das opções acima: "))
@@ -30,6 +32,9 @@ def menu():
             continue
         elif(opcao == 3):
             print("aqui vai ficar o 3° crud")
+            continue
+        elif(opcao== 4):
+            metas.menu()
             continue
         else:
             print("Saindo...")
