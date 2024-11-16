@@ -1,34 +1,128 @@
 import json
-# pelo que testei cada vez que se adiciona um perfil diferente o outro é excluido @andre e @maju, tentem ver se consegue fazer o perfil de gastos ser vinculado diretamente com o perfil do usuario(cadastro)
+import os
+from time import sleep
+
 arquivo = "perfil.json"
 
-def salvar_perfil_usuario(perfil_usuario):
-    with open(arquivo, 'w') as file:
-        json.dump(perfil_usuario, file, indent=4)
-    print("Perfil do usuário salvo com sucesso!")
-# função com todas as perguntas que precisam ser respondidas, ainda acho que são muitas mas ok
-def criar_perfil_usuario():
-    perfil_usuario = {
-        "renda_mensal": float(input("Informe sua renda mensal: ")),
-        "fontes_renda_principais": input("Informe suas principais fontes de renda: "),
-        "valor_medio_despesas_mensais": float(input("Informe o valor médio das despesas mensais: ")),
-        "dividas_pendentes": input("Descreva suas dívidas pendentes: "),
-        "valor_medio_dividas_pendentes": float(input("Informe o valor médio das dívidas pendentes: ")),
-        "capacidade_poupanca": float(input("Informe sua capacidade de poupança: ")),
-        "objetivos_curto_prazo": input("Quais são seus objetivos de curto,médio e longo prazo? "),
-        "gastos_entretenimento": input("Descreva seus gastos com entretenimento: "),
-        "valor_medio_entretenimento": float(input("Informe o valor médio de gastos com entretenimento: ")),
-        "padrao_consumo_servicos": input("Descreva seu padrão de consumo de serviços: "),
-        "valor_medio_pcs": float(input("Informe o valor médio de consumo de serviços: ")),
-        "gastos_educ_saude": input("Descreva seus gastos com educação e saúde: "),
-        "valor_medio_educ_saude": float(input("Informe o valor médio dos gastos com educação e saúde: ")),
-        "principais_cartoes": input("Informe seus principais cartões de crédito: "),
-        "forma_pagamento_comum": input("Informe sua forma de pagamento mais comum: ")      
-    }
+def carregar_usuarios():
+    if not os.path.exists(arquivo):
+        with open(arquivo, 'w') as f:
+            json.dump([], f, indent=4)
     
-    salvar_perfil_usuario(perfil_usuario)
+    with open(arquivo, 'r') as f:
+        return json.load(f)
 
-# msg de quando inicia lá pelo menu
+def salvar_usuarios(usuarios):
+    with open(arquivo, 'w') as f:
+        json.dump(usuarios, f, indent=4, ensure_ascii=False)
+
+def criar_perfil_usuario(nome, renda_mensal, vm_despesas_mensais, div_pendentes, vm_div_pendentes, objetivos, vm_entretenimento, vm_educ_saude, formas_pagamento):
+    usuarios = carregar_usuarios()
+
+    novo_usuario = {
+        "nome": nome,
+        "renda mensal": renda_mensal,
+        "valor das despesas": vm_despesas_mensais,
+        "dividas pendentes": div_pendentes,
+        "valor das dívidas": vm_div_pendentes,
+        "objetivos financeiros": objetivos,
+        "gasto com entretenimento": vm_entretenimento,
+        "gasto com saúde e educação": vm_educ_saude,
+        "formas de pagamento comum": formas_pagamento,
+    }
+
+    usuarios.append(novo_usuario)
+    salvar_usuarios(usuarios)
+    sleep (1)
+    print("USUÁRIO ADICIONADO COM SUCESSO!")
+
+def listar_usuarios():
+    usuarios = carregar_usuarios()
+
+    if usuarios:
+        print("LISTA DE USUÁRIOS:")
+        for usuario in usuarios:
+            print("-" * 50)
+            for chave, valor in usuario.items():
+                print(f"{chave.upper()}: {valor}")
+            print("-" * 50)
+    else:
+        sleep (1)
+        print("NENHUM USUÁRIO CADASTRADO.")
+
+def atualizar_usuario(nome_antigo, novo_nome, nova_renda, nova_despesa, nova_causa_divida, novo_vm_divida, novo_objetivo, novo_vm_entretenimento, novo_vm_educ_saude, nova_fpagamento):
+    usuarios = carregar_usuarios()
+
+    for usuario in usuarios:
+        if usuario['nome'] == nome_antigo:
+            usuario['nome'] = novo_nome
+            usuario['renda mensal'] = nova_renda
+            usuario['valor das despesas'] = nova_despesa
+            usuario['dividas pendentes'] = nova_causa_divida
+            usuario['valor das dívidas'] = novo_vm_divida
+            usuario['objetivos financeiros'] = novo_objetivo
+            usuario['gasto com entretenimento'] = novo_vm_entretenimento
+            usuario['gasto com saúde e educação'] = novo_vm_educ_saude
+            usuario['formas de pagamento comum'] = nova_fpagamento
+            break
+    salvar_usuarios(usuarios)
+    sleep (1)
+    print("USUÁRIO ATUALIZADO COM SUCESSO!")
+
+def excluir_usuario(nome):
+    usuarios = carregar_usuarios()
+    usuarios = [usuario for usuario in usuarios if usuario['nome'] != nome]
+
+    salvar_usuarios(usuarios)
+    print("USUÁRIO EXCLUÍDO COM SUCESSO!")
+    
 def menu():
-    print("Bem-vindo ao módulo de Perfil Financeiro!")
-    criar_perfil_usuario()
+    while True:
+        print("\nMENU PERFIL FINANCEIRO:")
+        print("1 - Criar perfil de usuário")
+        print("2 - Listar perfis")
+        print("3 - Atualizar perfis")
+        print("4 - Excluir perfis")
+        print("0 - Voltar ao menu anterior")
+        
+        opcao = input("Escolha uma opção:\n>>> ")
+
+        if opcao == "1":
+            sleep(1)
+            nome = input("Digite o nome:\n>>> ")
+            renda_mensal = input("Digite a renda mensal:\n>>> ")
+            vm_despesas_mensais = input("Digite o valor médio das despesas mensais:\n>>> ")
+            div_pendentes = input("Digite as principais causas de dívidas:\n>>> ")
+            vm_div_pendentes = input("Digite o valor médio dessas dívidas:\n>>> ")
+            objetivos = input("Digite os objetivos financeiros:\n>>> ")
+            vm_entretenimento = input("Digite os gastos com entretenimento:\n>>> ")
+            vm_educ_saude = input("Digite os gastos com educação e saúde:\n>>> ")
+            formas_pagamento = input("Digite as principais formas de pagamento:\n>>> ")
+            criar_perfil_usuario(nome, renda_mensal, vm_despesas_mensais, div_pendentes, vm_div_pendentes, objetivos, vm_entretenimento, vm_educ_saude, formas_pagamento)
+        elif opcao == "2":
+            sleep(1)
+            listar_usuarios()
+        elif opcao == "3":
+            sleep(1)
+            nome_antigo = input("Digite o nome do usuário a ser atualizado:\n>>> ")
+            novo_nome = input("Digite o novo nome:\n>>> ")
+            nova_renda = input("Digite a nova renda mensal:\n>>> ")
+            nova_despesa = input("Digite as novas despesas mensais:\n>>> ")
+            nova_causa_divida = input("Digite a novas causas das dívidas:\n>>> ")
+            novo_vm_divida = input("Digite o novo valor das dívidas:\n>>> ")
+            novo_objetivo= input("Digite o novo objetivo:\n>>> ")
+            novo_vm_entretenimento = input("Digite o novo valor gasto com entretenimento:\n>>> ")          
+            novo_vm_educ_saude = input("Digite o novo valor gasto com educação e saúde:\n>>> ")         
+            nova_fpagamento = input("Digite a nova forma de pagamento:\n>>> ")
+                    
+            atualizar_usuario(nome_antigo, novo_nome, nova_renda, nova_despesa, nova_causa_divida, novo_vm_divida, novo_objetivo, novo_vm_entretenimento, novo_vm_educ_saude, nova_fpagamento)
+        elif opcao == "4":
+            sleep(1)
+            nome = input("Digite o nome do usuário a ser excluído:\n>>> ")
+            excluir_usuario(nome)
+        elif opcao == "0":
+            sleep(1)
+            print("Voltando ao menu anterior...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
