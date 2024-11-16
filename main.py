@@ -16,7 +16,7 @@ def menu():
     while True:
         print(f"---> {cor.AZUL}Sistema FinSoluções{cor.RESET} <---")
         print("    1 - Modulo usuarios")
-        print("    2 - Perfil Financeiro")
+        print("    2 - Modulo perfis")
         print("    3 - 3 crud")
         print("    0 - Sair")
     
