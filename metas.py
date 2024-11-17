@@ -29,7 +29,7 @@ def criar_metas(nome, prazo, descricao):
     metas.append(nova_meta)
     salvar_metas(metas)
     
-    return "Usuario criado com sucesso!"
+    return "Meta criada com sucesso!"
 
 def listar_metas():
     metas = carregar_metas()
@@ -41,17 +41,18 @@ def listar_metas():
         return "Nenhuma meta encontrada."
     return metas
 
-def atualizar_meta(nome, novo_nome, prazo, novo_prazo, descricao, nova_descricao):
+def atualizar_meta(nome_antigo, novo_nome, prazo, novo_prazo, descricao, nova_descricao):
     metas = carregar_metas()
     
-    if nome not in metas:
-        return "Meta não encontrada!"
-    
-    metas[nome]['nome'] = novo_nome
-    metas[prazo]['prazo'] = novo_prazo
-    metas[descricao]['descrição'] = nova_descricao
+    for meta in metas:
+        if meta['nome'] == nome_antigo:
+          meta[nome_antigo]['nome'] = novo_nome
+          meta[prazo]['prazo'] = novo_prazo
+          meta[descricao]['descrição'] = nova_descricao
+          break
+
     salvar_metas(metas)
-    return "Meta atualizada com sucesso!"
+    return "Meta atualizada!"
 
 def deletar_meta(nome):
     metas = carregar_metas()
@@ -81,11 +82,11 @@ def menu():
     elif option == '2':
         listar_metas()    
     elif option == '3':
-        nome = input("informe o nome da meta: ")
+        nome_antigo = input("informe o nome da meta: ")
         novo_nome = input("Digite o novo nome para sua meta:")
         novo_prazo = input("Digite se o novo prazo é curto, médio ou longo: ")
         nova_descricao = input("Digite uma nova descrição:")
-        print(atualizar_meta(nome, novo_nome, novo_prazo, nova_descricao))    
+        print(atualizar_meta(nome_antigo, novo_nome, novo_prazo, nova_descricao))    
     elif option == '4':
         nome = input("Digite nome da meta a ser deletada: ")
         print(deletar_meta(nome))         
