@@ -115,7 +115,7 @@ def excluir_investimento(usuario):
     print("✅ Investimento excluído com sucesso!")
 
 
-def menu_investimentos():
+def menu():
     while True:
         print("\nMÓDULO DE INVESTIMENTOS:")
         print("1. Adicionar investimento")
