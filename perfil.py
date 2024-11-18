@@ -117,12 +117,12 @@ def menu():
                     
             atualizar_usuario(nome_antigo, novo_nome, nova_renda, nova_despesa, nova_causa_divida, novo_vm_divida, novo_objetivo, novo_vm_entretenimento, novo_vm_educ_saude, nova_fpagamento)
         elif opcao == "4":
-            sleep(1)
             nome = input("Digite o nome do usuário a ser excluído:\n>>> ")
+            sleep(1)
             excluir_usuario(nome)
         elif opcao == "0":
-            sleep(1)
             print("Voltando ao menu anterior...")
+            sleep(1)
             break
         else:
             print("Opção inválida. Tente novamente.")
