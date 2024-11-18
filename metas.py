@@ -41,14 +41,14 @@ def listar_metas():
         return "Nenhuma meta encontrada."
     return metas
 
-def atualizar_meta(nome_antigo, novo_nome, prazo, novo_prazo, descricao, nova_descricao):
+def atualizar_meta(nome_antigo, novo_nome, novo_prazo, nova_descricao):
     metas = carregar_metas()
     
     for meta in metas:
         if meta['nome'] == nome_antigo:
-          meta[nome_antigo]['nome'] = novo_nome
-          meta[prazo]['prazo'] = novo_prazo
-          meta[descricao]['descrição'] = nova_descricao
+          meta['nome'] = novo_nome
+          meta['prazo'] = novo_prazo
+          meta['descricão'] = nova_descricao
           break
 
     salvar_metas(metas)
@@ -65,33 +65,35 @@ def deletar_meta(nome):
     return "Meta deletada com sucesso!"
     
 def menu():
-    print("\n---> FinSolucoes <---")
-    print("1 - Criar meta")
-    print("2 - Listar meta")
-    print("3 - Atualizar meta")
-    print("4 - Deletar meta")
-    print("5 - Voltar ao menu anterior")
-        
-    option = input("Escolha uma opcao: ")
-        
-    if option == '1':
-        nome = input("Nome da meta: ")
-        prazo = input("Informe se o prazo é curto, médio ou longo: ")
-        descricao = input("Digite uma descrição para sua meta: ")
-        print(criar_metas(nome, prazo, descricao))    
-    elif option == '2':
-        listar_metas()    
-    elif option == '3':
-        nome_antigo = input("informe o nome da meta: ")
-        novo_nome = input("Digite o novo nome para sua meta:")
-        novo_prazo = input("Digite se o novo prazo é curto, médio ou longo: ")
-        nova_descricao = input("Digite uma nova descrição:")
-        print(atualizar_meta(nome_antigo, novo_nome, novo_prazo, nova_descricao))    
-    elif option == '4':
-        nome = input("Digite nome da meta a ser deletada: ")
-        print(deletar_meta(nome))         
-    elif option == '0':
-        print("Voltando...")  
-    else:
-        print("Opcao invalida!")           
+    while True:
+        print("\n---> FinSolucoes <---")
+        print("1 - Criar meta")
+        print("2 - Listar meta")
+        print("3 - Atualizar meta")
+        print("4 - Deletar meta")
+        print("0 - Voltar ao menu anterior")
+            
+        option = input("Escolha uma opcao: ")
+            
+        if option == '1':
+            nome = input("Nome da meta: ")
+            prazo = input("Informe se o prazo é curto, médio ou longo: ")
+            descricao = input("Digite uma descrição para sua meta: ")
+            print(criar_metas(nome, prazo, descricao))    
+        elif option == '2':
+            listar_metas()    
+        elif option == '3':
+            nome_antigo = input("informe o nome da meta: ")
+            novo_nome = input("Digite o novo nome para sua meta:")
+            novo_prazo = input("Digite se o novo prazo é curto, médio ou longo: ")
+            nova_descricao = input("Digite uma nova descrição:")
+            print(atualizar_meta(nome_antigo, novo_nome, novo_prazo, nova_descricao))    
+        elif option == '4':
+            nome = input("Digite nome da meta a ser deletada: ")
+            print(deletar_meta(nome))        
+        elif option == '0':
+            print("Voltando...")  
+            break
+        else:
+            print("Opcao invalida!")           
 
