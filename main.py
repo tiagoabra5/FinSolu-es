@@ -1,6 +1,6 @@
 import json
 import os
-import cadastro
+from cadastro import *
 import perfil
 import metas
 import investimentos
@@ -26,7 +26,7 @@ def menu():
         opcao = int(input("Escolha uma das opções acima: "))
 
         if(opcao == 1):
-            cadastro.menu()
+            menu_cadastro()
             continue
         elif(opcao == 2):
             perfil.menu()
