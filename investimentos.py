@@ -1,19 +1,8 @@
 import json
 import os
 
-
 arquivo_usuarios = os.path.join(os.path.dirname(__file__), 'usuarios.json')
 arquivo_investimentos = os.path.join(os.path.dirname(__file__), 'investimentos.json')
-
-class cor:
-    VERMELHO = '\033[91m'
-    VERDE = '\033[92m'
-    AMARELO = '\033[93m'
-    AZUL = '\033[94m'
-    MAGENTA = '\033[95m'
-    CIANO = '\033[96m'
-    RESET = '\033[0m'
-
 
 def carregar_dados(arquivo):
     if not os.path.exists(arquivo):
@@ -26,7 +15,6 @@ def salvar_dados(arquivo, dados):
     with open(arquivo, 'w') as f:
         json.dump(dados, f, indent=4, ensure_ascii=False)
 
-
 def adicionar_investimento(usuario, tipo_investimento, valor, prazo):
     investimentos = carregar_dados(arquivo_investimentos)
     novo_investimento = {
@@ -37,10 +25,9 @@ def adicionar_investimento(usuario, tipo_investimento, valor, prazo):
     }
     investimentos.append(novo_investimento)
     salvar_dados(arquivo_investimentos, investimentos)
-    print("✅ Investimento adicionado com sucesso!")
+    print("Investimento adicionado com sucesso!")
 
 def calcular_montante_final(valor, prazo, tipo):
-
     taxa_juros = 0.005 if tipo == "Tesouro Direto" else 0.006
     montante_final = valor * (1 + taxa_juros) ** prazo
     return montante_final
@@ -49,10 +36,10 @@ def listar_investimentos(usuario):
     investimentos = carregar_dados(arquivo_investimentos)
     investimentos_usuario = [inv for inv in investimentos if inv.get('usuario') == usuario]
     if not investimentos_usuario:
-        print("⚠ Nenhum investimento encontrado para este usuário.")
+        print("Nenhum investimento encontrado para este usuário.")
         return []
 
-    print(f"\n{cor.VERDE}Investimentos para {usuario}:{cor.RESET}")
+    print(f"\nInvestimentos para {usuario}:")
     for index, investimento in enumerate(investimentos_usuario):
         tipo = investimento.get('tipo')
         valor = investimento.get('valor', 0)
@@ -83,7 +70,6 @@ def atualizar_investimento(usuario):
     novo_valor = float(input("Novo valor: "))
     novo_prazo = int(input("Novo prazo (em meses): "))
 
-  
     investimentos = carregar_dados(arquivo_investimentos)
     investimentos_totais = [
         inv if inv != investimento_selecionado else {
@@ -94,7 +80,7 @@ def atualizar_investimento(usuario):
         } for inv in investimentos
     ]
     salvar_dados(arquivo_investimentos, investimentos_totais)
-    print("✅ Investimento atualizado com sucesso!")
+    print("Investimento atualizado com sucesso!")
 
 def excluir_investimento(usuario):
     investimentos_usuario = listar_investimentos(usuario)
@@ -104,16 +90,14 @@ def excluir_investimento(usuario):
     escolha_id = int(input("Digite o ID do investimento que deseja excluir: "))
     
     if escolha_id < 0 or escolha_id >= len(investimentos_usuario):
-        print("⚠ ID de investimento inválido.")
+        print("ID de investimento inválido.")
         return
 
-    
     investimento_selecionado = investimentos_usuario[escolha_id]
     investimentos = carregar_dados(arquivo_investimentos)
     investimentos_totais = [inv for inv in investimentos if inv != investimento_selecionado]
     salvar_dados(arquivo_investimentos, investimentos_totais)
-    print("✅ Investimento excluído com sucesso!")
-
+    print("Investimento excluído com sucesso!")
 
 def menu():
     while True:
@@ -144,4 +128,4 @@ def menu():
             print("Voltando ao menu principal...")
             break
         else:
-            print("⚠ Opção inválida. Tente novamente.")
+            print("Opção inválida. Tente novamente.")
