@@ -32,7 +32,7 @@ def menu():
             perfil.menu()
             continue
         elif(opcao == 3):
-            investimentos.menu()
+            investimentos.menu_investimentos()
             continue
         elif(opcao== 4):
             metas.menu()
