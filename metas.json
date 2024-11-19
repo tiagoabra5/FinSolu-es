@@ -3,15 +3,5 @@
         "nome": "testinho",
         "prazo": "longo",
         "descri\u00e7\u00e3o": "testando"
-    },
-    {
-        "nome": "teste",
-        "prazo": "longo",
-        "descri\u00e7\u00e3o": "testando"
-    },
-    {
-        "nome": "testando",
-        "prazo": "longo",
-        "descri\u00e7\u00e3o": "testando"
     }
 ]

@@ -1,10 +1,10 @@
 [
     {
-        "username": "teste0001",
-        "cpf": "000",
-        "idade": "00",
-        "genero": "F",
-        "email": "0@1",
+        "username": "teste john",
+        "cpf": "000111",
+        "idade": "22",
+        "genero": "M",
+        "email": "john@teste.com",
         "password": "321"
     }
 ]

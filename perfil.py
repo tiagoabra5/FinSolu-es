@@ -76,7 +76,7 @@ def excluir_usuario(nome):
     salvar_usuarios(usuarios)
     print("USUÁRIO EXCLUÍDO COM SUCESSO!")
     
-def menu():
+def menu_perfil():
     while True:
         print("\nMENU PERFIL FINANCEIRO:")
         print("1 - Criar perfil de usuário")

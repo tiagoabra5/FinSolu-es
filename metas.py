@@ -64,7 +64,7 @@ def deletar_meta(nome):
     salvar_metas(metas)
     return "Meta deletada com sucesso!"
     
-def menu():
+def menu_metas():
     while True:
         print("\n---> FinSolucoes <---")
         print("1 - Criar meta")

@@ -4,5 +4,17 @@
         "tipo": "2",
         "valor": 9000.0,
         "prazo": 21
+    },
+    {
+        "usuario": "apostasa",
+        "tipo": "1",
+        "valor": 1000.0,
+        "prazo": 10
+    },
+    {
+        "usuario": "a",
+        "tipo": "2",
+        "valor": 2000.0,
+        "prazo": 1
     }
 ]

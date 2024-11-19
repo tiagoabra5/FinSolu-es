@@ -1,9 +1,9 @@
 import json
 import os
 from cadastro import *
-import perfil
-import metas
-import investimentos
+from perfil import *
+from investimentos import *
+from metas import *
 
 class cor:
     VERMELHO = '\033[91m'
@@ -29,13 +29,13 @@ def menu():
             menu_cadastro()
             continue
         elif(opcao == 2):
-            perfil.menu()
+            menu_perfil()
             continue
         elif(opcao == 3):
-            investimentos.menu_investimentos()
+            menu_investimentos()
             continue
         elif(opcao== 4):
-            metas.menu()
+            menu_metas()
             continue
         else:
             print("Saindo...")
